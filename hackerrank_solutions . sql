@@ -1,0 +1,27 @@
+-- HackerRank SQL Solutions
+-- Author: Sharon Jebet Koech
+-- Platform: HackerRank.com
+
+-- Problem 1: Revising the Select Query I [Easy]
+-- Query all columns for all American cities with populations > 100000
+SELECT * 
+FROM CITY 
+WHERE COUNTRYCODE = 'USA' AND POPULATION > 100000;
+
+-- Problem 2: Weather Observation Station 3 [Easy] 
+-- Query distinct CITY names with even ID numbers
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE MOD(ID, 2) = 0;
+
+-- Problem 3: The PADS [Medium]
+-- Generate names + first letter of occupation in brackets
+SELECT CONCAT(Name, '(', LEFT(Occupation, 1), ')') 
+FROM OCCUPATIONS 
+ORDER BY Name;
+
+-- Count occupations
+SELECT CONCAT('There are a total of ', COUNT(Occupation), ' ', LOWER(Occupation), 's.') 
+FROM OCCUPATIONS 
+GROUP BY Occupation 
+ORDER BY COUNT(Occupation), Occupation;
